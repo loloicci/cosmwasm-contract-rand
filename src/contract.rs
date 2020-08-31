@@ -5,7 +5,6 @@ use cosmwasm_std::{
 use crate::msg::{QueryResponse, HandleMsg, InitMsg, QueryMsg};
 use crate::state::{config, config_read, State};
 
-//use std::time::{SystemTime, UNIX_EPOCH};
 use rand::Rng;
 
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -61,5 +60,5 @@ pub fn query<S: Storage, A: Api, Q: Querier>(
 
 fn query_get<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdResult<QueryResponse> {
     let state = config_read(&deps.storage).load()?;
-    Ok(QueryResponse { last_called: state.last_called })
+    Ok(QueryResponse { rand: state.rand })
 }
