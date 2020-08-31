@@ -12,11 +12,8 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
     env: Env,
     msg: InitMsg,
 ) -> StdResult<InitResponse> {
-    let mut rng = rand::thread_rng();
-    let rand: u64 = rng.gen();
-
     let state = State {
-        rand: rand,
+        rand: 0,
         owner: deps.api.canonical_address(&env.message.sender)?,
     };
 
