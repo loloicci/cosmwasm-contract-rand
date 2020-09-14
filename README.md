@@ -1,10 +1,15 @@
 # An Example of Non-deterministic Contract (using rand)
 
 ## Summary
+Non-deterministic contracts are expected not to be able to stored in chain.
+However, contracts using `rand::Rng.gen()` can be stared in the chain.
 
 In the `master` branch, both init and execute are non-deterministic.
 In the `deterministic-init` branch, only execute is non-deterministic.
+
 Conclusion of comparing these, it issues a `out of gas` error when non-deterministic part (`rand::Rng.gen()`) is executed.
+
+Why `out of gas` is issued is referred by https://github.com/CosmWasm/cosmwasm/issues/501 and https://github.com/CosmWasm/cosmwasm/issues/375 .
 
 ## Compile and Execute
 This section is summary of https://docs.cosmwasm.com/getting-started/compile-contract.html .
