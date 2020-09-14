@@ -2,7 +2,7 @@
 
 ## Summary
 Non-deterministic contracts are expected not to be able to stored in chain.
-However, contracts using `rand::Rng.gen()` can be stared in the chain.
+However, contracts using `rand::Rng.gen()` can be stored in the chain.
 
 In the `master` branch, both init and execute are non-deterministic.
 In the `deterministic-init` branch, only execute is non-deterministic.
